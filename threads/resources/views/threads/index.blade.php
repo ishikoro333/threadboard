@@ -8,7 +8,7 @@
                 <div class="card">
                     <h5 class="card-header">新規スレッド</h5>
                     <div class="card-body">
-                        <form action="" method="POST">
+                        <form action="{{ route('threads.store') }}" method="POST">
                             @csrf
                             <div class="form-group">
                                 <label for="thread-title" class="
