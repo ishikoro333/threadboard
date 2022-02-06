@@ -25,7 +25,7 @@ class ThreadRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'content' => 'required|min:10',
+            'content' => 'required|min:5',
         ];
     }
 
