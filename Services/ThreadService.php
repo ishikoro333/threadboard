@@ -3,14 +3,41 @@
 namespace App\Services;
 
 use Exception;
+use APP\Repository\ThreadRepository;
+use APP\Repository\MessageRepository;
 use App\Models\Thread;
-use App\Models\Message;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 
 class ThreadService
 {
+    /**
+     * @var ThreadRepository
+     */
+    protected $thread_repository;
+
+    /**
+     * @var MessageRepository
+     */
+    protected $message_repository;
+
+    /**
+     * ThreadService constructor
+     *
+     * @param ThreadRepository
+     * @param MessageRepository
+     */
+
+    public function __construct(
+        ThreadRepository $thread_repository,
+        MessageRepository $message_repository
+    ) {
+        $this -> thread_repository = $thread_repository;
+        $this -> message_repository = $message_repository;
+    }
+
+
     /**
      * Create new Thread and first new message.
      * @param array $data
@@ -20,10 +47,10 @@ class ThreadService
         DB::beginTransaction();
         try {
             $thread_data = $this->getThreadData($data['name'], $user_id);
-            $thread = Thread::create($thread_data);
+            $thread = $this -> thread_repository -> create($thread_data);
 
             $message_data = $this->getMessageData($data['content'], $user_id, $thread -> id);
-            Message::create($message_data);
+            $this -> message_repository -> create($message_data);
         } catch (Exeption $error) {
             DB::rollback();
             Log::error($error->getMessage());
