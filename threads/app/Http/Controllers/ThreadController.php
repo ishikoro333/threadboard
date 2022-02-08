@@ -3,12 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Thread;
-use App\Models\Message;
 use App\Http\Requests\ThreadRequest;
-use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use App\Services\ThreadService;
+use Exception;
 
 class ThreadController extends Controller
 {

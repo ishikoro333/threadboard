@@ -1,6 +1,6 @@
 <?php
 
-namespace APP\Repository;
+namespace APP\Repositories;
 
 use App\Models\Message;
 
@@ -18,7 +18,7 @@ class MessageRepository
      */
     public function __construct(message $message)
     {
-        $this -> message -> $message;
+        $this -> message = $message;
     }
 
     /**

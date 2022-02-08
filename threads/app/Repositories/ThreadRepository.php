@@ -1,6 +1,6 @@
 <?php
 
-namespace APP\Repository;
+namespace APP\Repositories;
 
 use App\Models\Thread;
 
@@ -18,7 +18,7 @@ class ThreadRepository
      */
     public function __construct(Thread $thread)
     {
-        $this -> thread -> $thread;
+        $this -> thread = $thread;
     }
 
     /**

@@ -3,9 +3,8 @@
 namespace App\Services;
 
 use Exception;
-use APP\Repository\ThreadRepository;
-use APP\Repository\MessageRepository;
-use App\Models\Thread;
+use App\Repositories\ThreadRepository;
+use App\Repositories\MessageRepository;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
@@ -51,7 +50,7 @@ class ThreadService
 
             $message_data = $this->getMessageData($data['content'], $user_id, $thread -> id);
             $this -> message_repository -> create($message_data);
-        } catch (Exeption $error) {
+        } catch (Exception $error) {
             DB::rollback();
             Log::error($error->getMessage());
             throw new Exception($error->getMessage());
