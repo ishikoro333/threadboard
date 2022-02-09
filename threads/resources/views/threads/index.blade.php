@@ -28,7 +28,7 @@
                                     <label for="thread-first-content">内容</label>
                                     <textarea name="body" id="thread-first-content" class="form-control" rows="3"></textarea>
                                 </div>
-                                <button type="submit" class="btn btn-outline-primary">書き込む</button>
+                                <button type="submit" class="btn btn-primary m-2">書き込む</button>
                             </form>
                             <a href="">全部読む</a>
                             <a href="">最新</a>
@@ -56,7 +56,7 @@
                                 <label for="thread-first-content" class="">内容</label>
                                 <textarea name="content" id="thread-first-content" rows="3" class="form-control"></textarea>
                             </div>
-                            <button type="submit" class="btn btn-outline-primary mt-2">スレッド作成</button>
+                            <button type="submit" class="btn btn-primary mt-2">スレッド作成</button>
                         </form>
                     </div>
                 </div>
