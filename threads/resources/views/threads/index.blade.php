@@ -21,7 +21,8 @@
                             @continue
                         @endif
                             <div class="card-body">
-                                <h5 class="card-title">{{ $loop->iteration }} 名前:{{ $message->user->name }}:{{$message->created_at }}</h5>
+                                <h5 class="card-title">{{ $loop->iteration }} 投稿者:{{ $message->user->name }}</h5>
+                                <h6 class="card-title">投稿日時:{{$message->created_at }}</h6>
                                 <p class="card-text">{{ $message->body }}</p>
                             </div>
                         @endforeach
