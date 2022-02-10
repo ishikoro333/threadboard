@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ThreadController;
+use App\Http\Controllers\MessageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,5 +22,5 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::resource('/threads', Threadcontroller::class)->except(['create', 'update']);
+Route::resource('/threads', ThreadController::class)->except(['create', 'update']);
 Route::resource('/threads/{thread}/messages', MessageController::class)->except(['create', 'update']);

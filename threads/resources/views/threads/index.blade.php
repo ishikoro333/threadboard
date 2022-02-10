@@ -22,7 +22,7 @@
                             </div>
                         @endforeach
                         <div class="card-footer">
-                            <form action="" method="POST" class="mb-5">
+                            <form action="{{ route('messages.store', $thread->id) }}" method="POST" class="mb-5">
                                 @csrf
                                 <div class="form-group">
                                     <label for="thread-first-content">内容</label>
