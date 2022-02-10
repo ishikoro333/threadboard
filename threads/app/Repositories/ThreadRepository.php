@@ -41,7 +41,7 @@ class ThreadRepository
      */
     public function getPaginatedThreads(int $per_page)
     {
-        return $this -> thread ->paginate($per_page);
+        return $this -> thread -> orderBy('latest_comment_time', 'desc') -> paginate($per_page);
     }
 
     public function findById(int $id)
