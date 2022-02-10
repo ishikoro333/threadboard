@@ -4,16 +4,27 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\MessageRequest;
+use App\Services\MessageService;
 use App\Models\Thread;
 use Illuminate\Support\Facades\Auth;
 
 class MessageController extends Controller
 {
+        /**
+     * The MessageService implementation
+     *
+     * @var MessageService
+     */
+    protected $message_service;
 
-    public function __construct()
+    public function __construct(
+        MessageService $message_service
+    )
     {
-        $this->middleware('auth');
+        $this -> middleware('auth');
+        $this -> message_service = $message_service;
     }
+
 
     /**
      * Display a listing of the resource.
@@ -43,14 +54,15 @@ class MessageController extends Controller
      */
     public function store(MessageRequest $request, int $id)
     {
-        $thread = Thread::find($id);
+        try {
+            $data = $request -> validated();
+            $data['user_id'] = Auth::id();
+            $this -> message_service -> createNewMessage($data, $id);
+        } catch (Exception $error) {
+            return redirect() -> route('threads.index') -> with('error', 'メッセージの投稿ができませんでした。');
+        }
 
-        $data = $request -> validated();
-        $data['user_id'] = Auth::id();
-
-        $thread -> messages() -> create($data);
-
-        return redirect() -> route('threads.index');
+        return redirect() -> route('threads.index') -> with('success', 'メッセージを投稿しました。');
     }
 
     /**

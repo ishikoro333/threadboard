@@ -42,4 +42,9 @@ class ThreadRepository
     {
         return $this -> thread ->paginate($per_page);
     }
+
+    public function findById(int $id)
+    {
+        return $this -> thread -> find($id);
+    }
 }
