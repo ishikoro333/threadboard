@@ -35,10 +35,10 @@
                                 </div>
                                 <button type="submit" class="btn btn-primary m-2">書き込む</button>
                             </form>
-                            <a href="">全部読む</a>
-                            <a href="">最新</a>
-                            <a href="">1-100</a>
-                            <a href="">リロード</a>
+                            <a href="{{ route('threads.show', $thread -> id) }}">全部読む</a>
+                            <a href="{{ route('threads.show', $thread -> id) }}">最新50</a>
+                            <a href="{{ route('threads.show', $thread -> id) }}">1-100</a>
+                            <a href="{{ route('threads.index') }}">リロード</a>
                         </div>
                     </div>
                 </div>
