@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@inject('message_service', 'App\Services\MessageService')
 
 @section('content')
     <div class="container">
@@ -17,7 +18,7 @@
                     <div class="card mb-2">
                         <div class="card-body">
                             <p>{{ $loop -> iteration }} {{ $message -> user -> name }} {{ $message -> created_at }}</p>
-                            <p class="mb-0">{{ $message -> body }}</p>
+                            <p class="mb-0">{!! $message_service -> convertUrl($message -> body) !!}</p>
                         </div>
                     </div>
                 @endforeach
