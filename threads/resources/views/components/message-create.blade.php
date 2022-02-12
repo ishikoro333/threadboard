@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-<form action="{{ route('messages.store', $thread->id) }}" method="POST" class="mb-5" enctype="multipart/form-data>
-=======
 <form action="{{ route('messages.store', $thread->id) }}" method="POST" class="mb-5" enctype="multipart/form-data">
->>>>>>> 047892e (add enctype="multipart/form-data")
                                 @csrf
                                 <div class="form-group">
                                     <label for="thread-first-content">内容</label>
