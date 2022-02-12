@@ -61,6 +61,5 @@ class MessageService
         $replace = '<a href="$1" target="_blank">$1</a>';
         $message = preg_replace($pattern, $replace, $message);
         return $message;
-
     }
 }
