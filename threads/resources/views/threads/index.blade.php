@@ -28,14 +28,7 @@
                             </div>
                         @endforeach
                         <div class="card-footer">
-                            <form action="{{ route('messages.store', $thread->id) }}" method="POST" class="mb-5">
-                                @csrf
-                                <div class="form-group">
-                                    <label for="thread-first-content">内容</label>
-                                    <textarea name="body" id="thread-first-content" class="form-control" rows="3"></textarea>
-                                </div>
-                                <button type="submit" class="btn btn-primary m-2">書き込む</button>
-                            </form>
+                            @include('components.message-create', compact('thread'))
                             <a href="{{ route('threads.show', $thread -> id) }}">全部読む</a>
                             <a href="{{ route('threads.show', $thread -> id) }}">最新50</a>
                             <a href="{{ route('threads.show', $thread -> id) }}">1-100</a>
