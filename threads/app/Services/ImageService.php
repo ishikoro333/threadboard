@@ -6,6 +6,8 @@ use App\Repositories\ImageRepository;
 use Exception;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use App\Models\Image;
+use Illuminate\Support\Facades\Storage;
 
 class ImageService
 {
@@ -38,7 +40,7 @@ class ImageService
         DB::beginTransaction();
         try {
             foreach ($images as $image) {
-                $path = Storage::disk('s3') -> put('/', $images);
+                $path = Storage::disk('s3') -> put('/', $image);
                 $data = [
                     's3_file_path' => $path,
                     'message_id' => $message_id
@@ -48,8 +50,8 @@ class ImageService
 
         } catch (Exception $error) {
             DB::rollback();
-            Log::error($error -> getMessage());
-            throw new Exception($error -> getMessage());
+            Log::error($error->getMessage());
+            throw new Exception($error->getMessage());
         }
         DB::commit();
 
