@@ -8,7 +8,6 @@ use App\Services\MessageService;
 use App\Models\Image;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
-use League\Flysystem\AwsS3v3\AwsS3Adapter;
 
 class MessageController extends Controller
 {
