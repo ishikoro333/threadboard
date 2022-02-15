@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\Http\Requests\MessageRequest;
 use App\Services\MessageService;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Storage;
 use App\Services\ImageService;
 
 

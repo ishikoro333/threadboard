@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Repositories\ImageRepository;
 use Exception;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use App\Models\Image;
@@ -15,6 +16,11 @@ class ImageService
      * @var ImageRepository
      */
     protected $image_repository;
+
+    /**
+     * @var $url
+     */
+    protected $url;
 
     /**
      * ImageService constructor
@@ -56,5 +62,16 @@ class ImageService
         DB::commit();
 
         return $image;
+    }
+
+    /**
+     * Create temporary url from path
+     *
+     * @param string $s3_file_path
+     * @return string
+     */
+    public function createTemporaryUrl(string $s3_file_path)
+    {
+        return Storage::disk('s3') -> temporaryUrl($s3_file_path, Carbon::now() -> addDay());
     }
 }

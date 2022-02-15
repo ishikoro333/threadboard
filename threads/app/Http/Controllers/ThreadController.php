@@ -88,7 +88,7 @@ class ThreadController extends Controller
     public function show($id)
     {
         $thread = $this -> thread_repository -> findById($id);
-        $thread -> load('messages.user', 'messages.image');
+        $thread -> load('messages.user', 'messages.images');
 
         return view('threads.show', compact('thread'));
     }
