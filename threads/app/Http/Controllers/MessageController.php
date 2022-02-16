@@ -66,6 +66,7 @@ class MessageController extends Controller
             $data = $request -> validated();
             $data['user_id'] = Auth::id();
             $message = $this -> message_service -> createNewMessage($data, $id);
+            
             $images = $request -> file('images');
             if ($images) {
                 $this -> image_service -> createNewImages($images, $message -> id);

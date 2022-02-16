@@ -47,9 +47,10 @@ class ImageService
         try {
             foreach ($images as $image) {
                 $path = Storage::disk('s3') -> put('/', $image);
+
                 $data = [
                     's3_file_path' => $path,
-                    'message_id' => $message_id
+                    'message_id' => $message_id,
                 ];
                 $this -> image_repository -> create($data);
             }
