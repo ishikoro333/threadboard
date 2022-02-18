@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ThreadController;
 use App\Http\Controllers\MessageController;
+use App\Http\Controllers\Admin\LoginController;
+use App\Http\Controllers\Admin\HomeController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +23,15 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+
+Route::group(['prefix' => 'admin'], function() {
+    Route::get('/login', [LoginController::class, 'showLoginForm']) -> name('admin.login');
+    Route::Post('/login', [LoginController::class, 'login']);
+});
+
+Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function() {
+    Route::get('/home', [HomeController::class, 'index']) -> name('admin.home');
+});
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::resource('/threads', ThreadController::class)->except(['create', 'update']);
