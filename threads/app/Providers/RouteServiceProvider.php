@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Route;
 
 class RouteServiceProvider extends ServiceProvider
 {
-    
+
     /**
      * The path to the "threads" route for your application.
      *
@@ -28,7 +28,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    public const ADMIN = '/admin/home';
+    public const ADMIN = '/admin/threads';
     /**
      * The controller namespace for the application.
      *

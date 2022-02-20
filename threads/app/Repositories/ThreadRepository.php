@@ -62,4 +62,16 @@ class ThreadRepository
         return $thread -> save();
     }
 
+    /**
+     * Delete thread from id
+     *
+     * @param int $id
+     * @return void
+     */
+    public function deleteThread(int $id)
+    {
+        $thread = $this -> findById($id);
+        return $thread -> delete();
+    }
+
 }
