@@ -35,8 +35,10 @@ Route::group(['prefix' => 'admin'], function() {
     Route::Post('login', [LoginController::class, 'login']);
 });
 
-Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin', 'as ' => 'admin'], function() {
+Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin', 'as ' => 'admin.'], function() {
     Route::post('logout', [LoginController::class, 'logout']) -> name('logout');
     Route::get('home', [HomeController::class, 'index']) -> name('home');
     Route::resource('/threads', AdminThreadController::class) -> except(['create', 'store', 'update']);
+
+
 });

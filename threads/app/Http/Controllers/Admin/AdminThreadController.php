@@ -31,7 +31,6 @@ class AdminThreadController extends Controller
         ThreadRepository $thread_repository
     )
     {
-        $this -> middleware('auth')->except('index');
         $this -> thread_service = $thread_service;
         $this -> thread_repository = $thread_repository;
     }
@@ -128,8 +127,9 @@ class AdminThreadController extends Controller
         try {
             $this -> thread_repository -> deleteThread($id);
         } catch (Exception $error) {
-            return redirect() -> route('admin.threads.index') -> with('error', 'スレッドの削除に失敗しました');
+            dd($error);
+            return redirect() -> route('threads.index') -> with('error', 'スレッドの削除に失敗しました');
         }
-        return redirect() -> route('admin.thread.index') -> with('success', 'スレッドの削除に成功しました。');
+        return redirect() -> route('threads.index') -> with('success', 'スレッドの削除に成功しました。');
     }
 }
