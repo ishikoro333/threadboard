@@ -39,6 +39,5 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin', 'as' => 'admin.
     Route::post('logout', [LoginController::class, 'logout']) -> name('logout');
     Route::get('home', [HomeController::class, 'index']) -> name('home');
     Route::resource('/threads', AdminThreadController::class) -> except(['create', 'store', 'update']);
-
-
+    Route::resource('/threads/{thread}/messages', AdminMessageController::class) -> only('destroy');
 });

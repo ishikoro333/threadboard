@@ -31,4 +31,28 @@ class MessageRepository
     {
         return $this -> message -> create($data);
     }
+
+    /**
+     * Find a message by id
+     * @param int $id
+     *
+     * @return Message $message
+     */
+    public function FindById(int $id)
+    {
+        return $this -> message -> find($id);
+    }
+
+    /**
+     * Delete message from id
+     * @param int $id
+     *
+     * @return void
+     */
+    public function deleteMessage(int $id)
+    {
+        $message = $this -> FindById($id);
+
+        return $message -> delete();
+    }
 }
