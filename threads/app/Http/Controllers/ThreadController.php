@@ -7,7 +7,7 @@ use App\Http\Requests\ThreadRequest;
 use Illuminate\Support\Facades\Auth;
 use App\Services\ThreadService;
 use Exception;
-use APP\Repositories\ThreadRepository;
+use App\Repositories\ThreadRepository;
 
 class ThreadController extends Controller
 {

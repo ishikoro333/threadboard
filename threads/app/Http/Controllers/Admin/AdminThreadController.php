@@ -1,14 +1,13 @@
 <?php
-
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use App\Http\Requests\ThreadRequest;
 use Illuminate\Support\Facades\Auth;
 use App\Services\ThreadService;
 use Exception;
 use App\Repositories\ThreadRepository;
+use App\Http\Controllers\Controller;
 
 class AdminThreadController extends Controller
 {
@@ -31,6 +30,7 @@ class AdminThreadController extends Controller
         ThreadRepository $thread_repository
     )
     {
+        $this -> middleware('auth:admin');
         $this -> thread_service = $thread_service;
         $this -> thread_repository = $thread_repository;
     }
@@ -127,9 +127,8 @@ class AdminThreadController extends Controller
         try {
             $this -> thread_repository -> deleteThread($id);
         } catch (Exception $error) {
-            dd($error);
-            return redirect() -> route('threads.index') -> with('error', 'スレッドの削除に失敗しました');
+            return redirect() -> route('admin.threads.index') -> with('error', 'スレッドの削除に失敗しました。');
         }
-        return redirect() -> route('threads.index') -> with('success', 'スレッドの削除に成功しました。');
+        return redirect() -> route('admin.threads.index') -> with('success', 'スレッドの削除に成功しました。');
     }
 }

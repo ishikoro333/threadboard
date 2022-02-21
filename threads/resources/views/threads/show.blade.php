@@ -10,7 +10,7 @@
                 <h3>{{ $thread -> name }}</h3>
             </div>
             <div class="col-md-8 mb-3">
-                <a href="{{ route('threads.index') }}" class="btn btn-primary">掲示板に戻る</a>
+                @include('components.thread-index-back')
             </div>
         </div>
         <div class="row justify-content-center">
