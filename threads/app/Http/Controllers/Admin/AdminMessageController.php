@@ -7,6 +7,7 @@ use App\Http\Requests\MessageRequest;
 use App\Http\Controllers\Controller;
 use App\Models\Thread;
 use Exception;
+use App\Repositories\MessageRepository;
 
 class AdminMessageController extends Controller
 {
@@ -18,7 +19,7 @@ class AdminMessageController extends Controller
     protected $message_repository;
 
     public function __construct(
-        MessageService $message_repository,
+        MessageRepository $message_repository
     ) {
         $this -> middleware('auth:admin');
         $this -> message_repository = $message_repository;
@@ -97,10 +98,10 @@ class AdminMessageController extends Controller
      * @param Thread $thread
      * @return \Illuminate\Http\Response
      */
-    public function destroy($thread, $id)
+    public function destroy(Thread $thread, $id)
     {
         try {
-            $thread = $this -> message_repository -> deleteMessage($id);
+            $this -> message_repository -> deleteMessage($id);
         } catch (Exception $error) {
             return redirect() -> route('admin.threads.show', $thread -> id) -> with('error', 'メッセージの削除に失敗しました。');
         }

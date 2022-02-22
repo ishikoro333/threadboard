@@ -32,12 +32,12 @@ Route::resource('/threads/{thread}/messages', MessageController::class)->except(
 
 Route::group(['prefix' => 'admin'], function() {
     Route::get('login', [LoginController::class, 'showLoginForm']) -> name('admin.login');
-    Route::Post('login', [LoginController::class, 'login']);
+    Route::post('login', [LoginController::class, 'login']);
 });
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin', 'as' => 'admin.'], function() {
     Route::post('logout', [LoginController::class, 'logout']) -> name('logout');
     Route::get('home', [HomeController::class, 'index']) -> name('home');
     Route::resource('/threads', AdminThreadController::class) -> except(['create', 'store', 'update']);
-    Route::resource('/threads/{thread}/messages', AdminMessageController::class) -> only('destroy');
+    Route::resource('/threads/{thread}/messages', AdminMessageController::class) -> only(['destroy']);
 });
