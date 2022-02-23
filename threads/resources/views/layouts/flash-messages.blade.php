@@ -26,6 +26,13 @@
     </div>
 @endif
 
+@if($message = Session::get('logout'))
+    <div class="alert alert-info alert-block">
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        <strong>{{ $message }}</strong>
+    </div>
+@endif
+
 @if(count($errors) > 0)
     <div class="alert alert-danger alert-block">
         <button type="button" class="btn-close" data-bs-dismiss="alert"></button>

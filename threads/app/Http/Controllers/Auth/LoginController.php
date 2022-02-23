@@ -40,4 +40,9 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+    public function loggedOut(Request $request)
+    {
+        return redirect() -> route('login') -> with('logout', 'ログアウトしました。');
+    }
 }

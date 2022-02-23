@@ -49,4 +49,9 @@ class LoginController extends Controller
     {
         return Auth::guard('admin');
     }
+
+    public function loggedOut(Request $request)
+    {
+        return redirect() -> route('login') -> with('logout', 'ログアウトしました。');
+    }
 }

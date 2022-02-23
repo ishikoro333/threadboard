@@ -23,9 +23,15 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm sticky-top">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+            @if (Auth::guard('admin') -> check())
+            <a class="navbar-brand" href="{{ route('admin.threads.index') }}">
+                    {{ config('app.name', 'Threads') }}
                 </a>
+            @else
+            <a class="navbar-brand" href="{{ route('threads.index') }}">
+                    {{ config('app.name', 'Threads') }}
+                </a>
+            @endif
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
