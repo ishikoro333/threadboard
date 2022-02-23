@@ -24,7 +24,7 @@ class MessageRequest extends FormRequest
     public function rules()
     {
         return [
-            'body' => 'required',
+            'body' => 'required|max:100',
             'images.*' => 'image|mimes:jpg,png,jpeg,gif,svg',
         ];
     }
@@ -33,6 +33,7 @@ class MessageRequest extends FormRequest
     {
         return [
             'body.required' => trans('validation.required'),
+            'body.required' => trans('validation.max'),
             'images.image' => trans('validation.image'),
             'images.mimes' => trans('validation.mimes'),
         ];
