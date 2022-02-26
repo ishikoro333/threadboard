@@ -28,6 +28,7 @@ Model/View/Controller/Service/Repositoryの切り分け
 ## [課題]
 
 EC２にデプロイする
+ec2上にトップページを表示できたため、AWS-RDSとの接続とssl接続に対応させる
 
 --------------------------
 
