@@ -32,10 +32,10 @@ class ThreadRequest extends FormRequest
     public function messages()
     {
         return [
-            'name.required' => trans('validation.max'),
             'name.required' => trans('validation.required'),
+            'name.required' => trans('validation.max'),
             'content.required' => trans('validation.required'),
-            'content.min' => trans('validation.max'),
+            'content.max' => trans('validation.max'),
         ];
     }
 }

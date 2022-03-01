@@ -33,7 +33,7 @@ class MessageRequest extends FormRequest
     {
         return [
             'body.required' => trans('validation.required'),
-            'body.required' => trans('validation.max'),
+            'body.max' => trans('validation.max'),
             'images.image' => trans('validation.image'),
             'images.mimes' => trans('validation.mimes'),
         ];
