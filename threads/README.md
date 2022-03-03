@@ -1,4 +1,4 @@
-
+URL:https://ishikoro.link/threads
 
 ## [作成した経緯]
 
@@ -27,8 +27,10 @@ Model/View/Controller/Service/Repositoryの切り分け
 
 ## [課題]
 
-EC２にデプロイする
-ec2上にトップページを表示できたため、AWS-RDSとの接続とssl接続に対応させる
+EC２にデプロイする(デプロイ済み)
+EC2上にトップページを表示できたため、AWS-RDSとの接続とssl接続に対応させる(接続済み)
+EC2にS3をマウントする
+
 
 --------------------------
 
