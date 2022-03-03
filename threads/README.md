@@ -1,4 +1,6 @@
 URL:https://ishikoro.link/threads
+テストアカウント：z_gundum@example.com
+パスワード：12345678
 
 ## [作成した経緯]
 
