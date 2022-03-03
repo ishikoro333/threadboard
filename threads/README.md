@@ -1,4 +1,4 @@
-URL:https://ishikoro.link/threads
+URL : <a href="https://ishikoro.link/threads" target="_blank">https://ishikoro.link/threads</a>	
 
 テストアカウント：z_gundum@example.com
 
