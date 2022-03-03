@@ -1,4 +1,5 @@
-リンク先 : <a href="https://ishikoro.link/threads" target="_blank">thread</a>	
+リンク先 : <a href="https://ishikoro.link/threads" target="_blank" rel="noopener noreferrer">thread</a>	
+
 
 テストアカウント：z_gundum@example.com
 
