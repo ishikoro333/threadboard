@@ -29,7 +29,7 @@
                                 @endforeach
                                 @endif
                             </div>
-                            <!-- @include('components.message-delete', compact('thread', 'message')) -->
+                            @include('components.message-delete', compact('thread', 'message'))
                         </div>
                     </div>
                 @endforeach
