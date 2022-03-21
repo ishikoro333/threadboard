@@ -33,7 +33,7 @@ class ThreadRequest extends FormRequest
     {
         return [
             'name.required' => trans('validation.required'),
-            'name.required' => trans('validation.max'),
+            'name.max' => trans('validation.max'),
             'content.required' => trans('validation.required'),
             'content.max' => trans('validation.max'),
         ];
